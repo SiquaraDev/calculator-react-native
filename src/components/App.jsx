@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView, Alert} from 'react-native';
 
 import {styles} from '../styles/styleApp';
 
@@ -44,6 +44,12 @@ function App() {
       setClearDisplay(true);
     } else {
       const copyValues = [...values];
+
+      if (operation === '/' && copyValues[1] === 0) {
+        Alert.alert('Error', 'Divisão por zero!');
+        clearMemory();
+        return;
+      }
 
       copyValues[0] = eval(`${copyValues[0]} ${operation} ${copyValues[1]}`);
       copyValues[1] = 0;
