@@ -46,7 +46,7 @@ function App() {
       const copyValues = [...values];
 
       if (operation === '/' && copyValues[1] === 0) {
-        Alert.alert('Error', 'Divisão por zero!');
+        Alert.alert('Error', 'Division by 0 is undefined!');
         clearMemory();
         return;
       }
